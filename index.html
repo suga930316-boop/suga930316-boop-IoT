@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>物聯網與感測技術：商業數位神經網絡</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
-        /* --- 復古未來感變數與基礎設定 --- */
+        /* --- 簡約科技感變數與基礎設定 --- */
         :root {
-            --bg-color: #0a0b10;
-            --panel-bg: rgba(16, 18, 27, 0.85);
-            --neon-green: #39ff14;
-            --neon-pink: #ff007f;
-            --neon-blue: #00f0ff;
-            --text-color: #d1d5db;
-            --grid-color: rgba(57, 255, 20, 0.03);
+            --bg-color: #f8fafc;
+            --panel-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --tech-blue: #0066cc;
+            --tech-cyan: #00cbd6;
+            --tech-pink: #ff2a74;
+            --border-color: #e2e8f0;
             --sidebar-width: 280px;
         }
 
@@ -30,24 +31,18 @@
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-primary);
             font-family: 'Noto Sans TC', sans-serif;
             display: flex;
             min-height: 100vh;
             overflow-x: hidden;
-            /* 復古科幻經典網格背景 */
-            background-image: 
-                linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-            background-size: 30px 30px;
         }
 
-        /* --- 側邊欄導航 (Sidebar) --- */
+        /* --- 簡約側邊欄導航 (Sidebar) --- */
         aside {
             width: var(--sidebar-width);
             background: var(--panel-bg);
-            border-right: 2px solid var(--neon-green);
-            box-shadow: 5px 0 20px rgba(57, 255, 20, 0.1);
+            border-right: 1px solid var(--border-color);
             position: fixed;
             top: 0;
             bottom: 0;
@@ -59,74 +54,72 @@
         }
 
         .sidebar-header {
-            padding: 30px 20px;
-            border-bottom: 1px dashed rgba(57, 255, 20, 0.3);
-            text-align: center;
+            padding: 35px 25px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .sidebar-header h2 {
-            font-family: 'Share Tech Mono', sans-serif;
-            color: var(--neon-green);
-            font-size: 24px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px var(--neon-green);
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--tech-blue);
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .sidebar-header p {
-            font-size: 12px;
-            color: var(--neon-blue);
-            margin-top: 5px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
         }
 
         nav {
             flex-grow: 1;
-            padding: 20px 0;
+            padding: 25px 0;
             overflow-y: auto;
         }
 
         nav a {
             display: flex;
             align-items: center;
-            padding: 15px 25px;
-            color: #9ca3af;
+            padding: 14px 25px;
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 15px;
+            font-weight: 500;
             border-left: 4px solid transparent;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         nav a i {
             margin-right: 15px;
             width: 20px;
             text-align: center;
+            font-size: 16px;
         }
 
         nav a:hover, nav a.active {
-            color: #fff;
-            background: rgba(57, 255, 20, 0.05);
-            border-left-color: var(--neon-pink);
-            text-shadow: 0 0 5px #fff;
+            color: var(--tech-blue);
+            background: #f1f5f9;
+            border-left-color: var(--tech-blue);
         }
 
         nav a.active i {
-            color: var(--neon-pink);
-            text-shadow: 0 0 8px var(--neon-pink);
+            color: var(--tech-blue);
         }
 
         .sidebar-footer {
-            padding: 20px;
-            border-top: 1px dashed rgba(57, 255, 20, 0.3);
+            padding: 25px;
+            border-top: 1px solid var(--border-color);
             font-size: 12px;
-            color: #6b7280;
-            text-align: center;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         /* --- 主要內容區 (Main Content) --- */
         main {
             margin-left: var(--sidebar-width);
             flex-grow: 1;
-            padding: 40px;
+            padding: 50px;
             max-width: 1400px;
             width: calc(100% - var(--sidebar-width));
         }
@@ -138,83 +131,80 @@
             top: 20px;
             right: 20px;
             background: var(--panel-bg);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             z-index: 101;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         /* --- 報告章節佈局 (Sections) --- */
         section {
             background: var(--panel-bg);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            border-radius: 8px;
-            padding: 40px;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            position: relative;
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
-            border-radius: 8px 8px 0 0;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 45px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
 
         h1.slide-title {
-            font-size: 32px;
-            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         h1.slide-title i {
-            color: var(--neon-blue);
-            text-shadow: 0 0 10px var(--neon-blue);
+            color: var(--tech-blue);
         }
 
         p.description {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.8;
-            margin-bottom: 30px;
-            color: #9ca3af;
+            margin-bottom: 35px;
+            color: var(--text-secondary);
         }
 
-        /* --- 佈局組件群 --- */
+        /* --- 科技感佈局組件群 --- */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
-        .retro-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 6px;
-            padding: 25px;
-            transition: all 0.3s ease;
+        .tech-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 28px;
+            transition: all 0.2s ease;
         }
 
-        .retro-card:hover {
-            border-color: var(--neon-green);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(57, 255, 20, 0.1);
+        .tech-card:hover {
+            border-color: var(--tech-blue);
+            background: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
-        .retro-card h3 {
-            color: var(--neon-green);
-            font-size: 20px;
+        .tech-card h3 {
+            color: var(--tech-blue);
+            font-size: 18px;
             margin-bottom: 12px;
-            font-family: 'Share Tech Mono', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .tech-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         /* 雙欄佈局 */
@@ -222,72 +212,111 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            align-items: center;
+            align-items: start;
         }
 
-        /* 資訊時間線（用於歷史起源） */
+        /* 簡約時間線（用於歷史起源） */
         .timeline {
-            border-left: 2px dashed rgba(0, 240, 255, 0.3);
-            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
+            padding-left: 25px;
             margin-left: 10px;
         }
 
         .timeline-item {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             position: relative;
         }
 
         .timeline-item::before {
             content: '';
-            width: 12px; height: 12px;
-            background: var(--neon-blue);
+            width: 10px; height: 10px;
+            background: var(--tech-blue);
             border-radius: 50%;
             position: absolute;
-            left: -27px; top: 6px;
-            box-shadow: 0 0 8px var(--neon-blue);
+            left: -31px; top: 6px;
         }
 
         .timeline-year {
-            font-family: 'Share Tech Mono', sans-serif;
-            color: var(--neon-pink);
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--tech-pink);
             font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 700;
+            margin-bottom: 6px;
         }
 
-        /* 圖表容器 */
-        .chart-container {
-            position: relative;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 20px;
+        /* 單獨抽離的圖表區塊樣式 */
+        .chart-block {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 30px;
             border-radius: 8px;
+            height: 400px;
+            width: 100%;
         }
 
-        /* ZARA / UNIQLO 流程樣式 */
+        /* 矩陣表格樣式 */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .matrix-table th {
+            background: #f1f5f9;
+            color: var(--text-primary);
+            text-align: left;
+            padding: 16px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .matrix-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .matrix-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* 應用流程樣式 */
         .flow-step {
             display: flex;
             align-items: flex-start;
             gap: 20px;
-            margin-bottom: 25px;
-            background: rgba(255,255,255,0.01);
+            margin-bottom: 20px;
+            background: #f8fafc;
             padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid var(--neon-blue);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
 
         .step-badge {
-            font-family: 'Share Tech Mono', sans-serif;
-            background: var(--neon-blue);
-            color: #000;
-            padding: 3px 10px;
-            font-weight: bold;
-            border-radius: 3px;
+            background: var(--tech-blue);
+            color: #ffffff;
+            padding: 4px 12px;
+            font-weight: 700;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            white-space: nowrap;
+        }
+
+        .flow-step h4 {
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .flow-step p {
             font-size: 14px;
+            color: var(--text-secondary);
         }
 
         /* --- 響應式斷點設定 (Media Queries) --- */
-        @media (max-width: 1024px) {
+        @media (max-width: 1100px) {
             .two-col { grid-template-columns: 1fr; }
         }
 
@@ -307,7 +336,7 @@
                 display: block;
             }
             section {
-                padding: 20px;
+                padding: 25px;
             }
         }
     </style>
@@ -322,131 +351,227 @@
             <p>流通科技管理期末報告</p>
         </div>
         <nav>
-            <a href="#intro" class="active"><i class="fa-solid fa-house"></i>首頁與起源</a>
-            <a href="#architecture"><i class="fa-solid fa-layer-group"></i>三層商業架構</a>
-            <a href="#warehouse"><i class="fa-solid fa-warehouse"></i>智慧倉儲流通</a>
-            <a href="#retail"><i class="fa-solid fa-store"></i>實體零售覺醒</a>
-            <a href="#cases"><i class="fa-solid fa-shirt"></i>服飾巨頭實戰案例</a>
-            <a href="#future"><i class="fa-solid fa-bolt"></i>未來展望 (AIoT)</a>
+            <a href="#intro" class="active"><i class="fa-solid fa-clock-history"></i>首頁與起源起源</a>
+            <a href="#architecture"><i class="fa-solid fa-sitemap"></i>三層商業價值架構</a>
+            <a href="#warehouse"><i class="fa-solid fa-boxes-stacked"></i>智慧倉儲與物流場景</a>
+            <a href="#chart-section"><i class="fa-solid fa-chart-bar"></i>數據驅動效益對比</a>
+            <a href="#matrix"><i class="fa-solid fa-table-cells"></i>技術診斷矩陣</a>
+            <a href="#retail"><i class="fa-solid fa-shop"></i>智慧門市感測佈局</a>
+            <a href="#lbs"><i class="fa-solid fa-location-crosshairs"></i>LBS 適地性行銷自動化</a>
+            <a href="#cases"><i class="fa-solid fa-tags"></i>服飾巨頭實戰案例解析</a>
+            <a href="#future"><i class="fa-solid fa-circle-nodes"></i>未來展望 (AIoT)</a>
         </nav>
         <div class="sidebar-footer">
-            指導教授：褚文明 教授<br>
-            湯唯滇 · 洪昀蓁 發表
+            指導教授：褚文明 教授 [cite: 4]<br>
+            班級學號：二技行銷流通二甲<br>
+            發表人：湯唯滇 · 洪昀蓁 [cite: 5]
         </div>
     </aside>
 
     <main>
 
         <section id="intro">
-            <h1 class="slide-title"><i class="fa-solid fa-hourglass-start"></i>物聯網的由來與起源</h1>
+            <h1 class="slide-title"><i class="fa-solid fa-globe"></i>物聯網與感測技術的起源</h1>
             <p class="description">
-                物聯網（Internet of Things, IoT）與感測技術的結合，宛如為實體世界打造了「數位神經網絡」，重塑了現代商業的行銷與流通邏輯。
+                物聯網（Internet of Things, IoT）與感測技術，建構起現代商業的數位神經網絡 [cite: 17]。它將物理世界的變化即時「翻譯」為數位數據，徹底重塑行銷與流通管理邏輯 [cite: 17, 24]。
             </p>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-year">1982</div>
-                    <p><strong>可樂販賣機創舉：</strong> 美國卡內基美隆大學的學生為了不想白跑一趟，將自動販賣機連上網路，用來確認裡面是否還有冰涼的可樂。這成為了物聯網最經典的早期雛形。</p>
+                    <p><strong>自動販賣機的連網實驗：</strong> 美國卡內基美隆大學的學生為了解決「不想白跑一趟卻發現可樂賣完或不夠冰」的痛點，將販賣機連上網路。物品開始具備初步的感知與溝通能力。</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">1999</div>
-                    <p><strong>概念正式誕生：</strong> 寶僑（P&G）的凱文·艾希頓（Kevin Ashton）在解決貨架口紅缺貨危機時，首度提出將 RFID（無線射頻辨識）標籤貼在產品上並與網際網路連結的概念，這一年物聯網（IoT）一詞正式問世。</p>
+                    <p><strong>IoT 概念正式問世：</strong> 寶僑（P&G）的凱文·艾希頓（Kevin Ashton）在為了解決貨架口紅缺貨危機時，首度提出將 RFID 標籤貼在產品上並與網際網路連結的概念，物聯網時代正式揭開序幕。</p>
                 </div>
             </div>
         </section>
 
         <section id="architecture">
-            <h1 class="slide-title"><i class="fa-solid fa-network-wired"></i>物聯網的三層商業價值架構</h1>
+            <h1 class="slide-title"><i class="fa-solid fa-layer-group"></i>拆解數位神經：三層商業價值架構</h1>
             <p class="description">
-                要建構起流暢的數位神經網絡，物聯網系統必須依賴三個關鍵層級的無縫整合。
+                物聯網系統透過三層結構的緊密協作，實現從物理變數到決策產出的完整自動化閉環 [cite: 50]。
             </p>
             <div class="grid-3">
-                <div class="retro-card">
-                    <h3>01 / 感知層 (Perception)</h3>
-                    <p><strong>第一線情報蒐集員：</strong> 透過溫濕度感測器、光敏電阻、超音波距離感測器或 RFID 擷取物理變數，負責將環境變化「翻譯」成數位數據。</p>
+                <div class="tech-card">
+                    <h3>底層：感知層 (Perception)</h3>
+                    <p><strong>第一線情報蒐集員：</strong> 負責擷取溫濕度、位置、人流、重量等物理數據 [cite: 58, 59]。常見元件如：溫濕度感測器、空氣品質感測器、超音波距離感測器及光敏電阻 [cite: 12, 13, 14]。</p>
                 </div>
-                <div class="retro-card">
-                    <h3>02 / 網路層 (Network)</h3>
-                    <p><strong>企業的高速公路：</strong> 透過 Wi-Fi、5G、LoRa 或 Gateway，將第一線採集到的物理變數以零延遲傳輸至雲端平台。</p>
+                <div class="tech-card">
+                    <h3>中層：網路層 (Network)</h3>
+                    <p><strong>企業的高速公路：</strong> 透過 Wi-Fi、5G、LoRa 或 Gateway [cite: 9, 52, 53, 54, 56]，將第一線採集到的物理變數以零延遲傳輸至雲端平台 [cite: 57]。</p>
                 </div>
-                <div class="retro-card">
-                    <h3>03 / 應用層 (Application)</h3>
-                    <p><strong>商業的數位大腦：</strong> 雲端平台接收數據後，轉換為智慧路燈控制、智慧交通監測、農業監測、庫存預測與精準行銷決策。</p>
+                <div class="tech-card">
+                    <h3>頂層：應用層 (Application)</h3>
+                    <p><strong>商業的智慧大腦：</strong> 將海量數據轉換為智慧建築管理、智慧城市控制中心、智慧交通、農業監測及庫存預測與行銷決策 [cite: 1, 8, 10, 11, 15, 55]。</p>
                 </div>
             </div>
         </section>
 
         <section id="warehouse">
-            <h1 class="slide-title"><i class="fa-solid fa-chart-line"></i>供應鏈的透視眼：智慧倉儲與效益對比</h1>
-            <div class="two-col">
-                <div>
-                    <p class="description">透過感測器網絡，倉儲管理從傳統盲區的「事後紀錄」進化為「即時掌控」，實現庫存透明化與全面自動化作業。</p>
-                    <div class="flow-step">
-                        <span class="step-badge">RFID Channel</span>
-                        <div>
-                            <h4>RFID 讀取通道</h4>
-                            <p>貨物進出庫瞬間完成批量掃描，告別過去逐件條碼讀取的漫長摸索。</p>
-                        </div>
-                    </div>
-                    <div class="flow-step">
-                        <span class="step-badge">AGV Navigation</span>
-                        <div>
-                            <h4>LiDAR 與紅外線感測</h4>
-                            <p>作為 AGV 無人搬運車的導航之眼，即時優化揀貨動線並防止碰撞碰撞。</p>
-                        </div>
-                    </div>
+            <h1 class="slide-title"><i class="fa-solid fa-warehouse"></i>供應鏈的透視眼：智慧倉儲與物流場景</h1>
+            <p class="description">透過感測器網絡，倉儲管理從「事後紀錄」進化為「即時掌控」，實現庫存透明化與作業自動化 [cite: 61, 62]。</p>
+            <div class="grid-3">
+                <div class="tech-card">
+                    <h3>RFID 讀取通道</h3>
+                    <p>貨物進出庫瞬間完成批量掃描，告別逐件條碼讀取，大幅提升進出貨效率 [cite: 63]。</p>
                 </div>
-                <div class="chart-container">
-                    <canvas id="efficiencyChart"></canvas>
+                <div class="tech-card">
+                    <h3>LiDAR 與紅外線感測</h3>
+                    <p>作為 AGV 無人搬運車的導航之眼，即時優化揀貨動線並防止碰撞，確保無人化作業安全 [cite: 64]。</p>
+                </div>
+                <div class="tech-card">
+                    <h3>IoT 溫濕度感測節點</h3>
+                    <p>應用於生鮮與醫藥冷鏈監控，即時監控冷藏環境，一旦溫度異常即觸發自動警報 [cite: 66, 83]。</p>
                 </div>
             </div>
         </section>
 
+        <section id="chart-section">
+            <h1 class="slide-title"><i class="fa-solid fa-chart-bar"></i>數據驅動的效益對比：從「憑經驗」到「精準預測」</h1>
+            <p class="description">
+                對比導入前後的商業核心指標，物聯網技術打破了資訊斷層導致的牛鞭效應 [cite: 68, 79]。以下圖表呈現傳統物流與智慧流通的關鍵數據差距。
+            </p>
+            <div class="two-col">
+                <div class="chart-block">
+                    <canvas id="efficiencyChart"></canvas>
+                </div>
+                <div>
+                    <div class="flow-step" style="border-left-color: var(--tech-pink);">
+                        <h4>導入前：傳統物流（依賴人工）</h4>
+                        <p>庫存準確率僅約 80%，盤點需要耗費數天時間 [cite: 73, 74]。冷鏈溫控完全依賴人工抽檢，隱性耗損成本高昂且風險極高 [cite: 75, 79]。</p>
+                    </div>
+                    <div class="flow-step" style="border-left-color: var(--tech-cyan);">
+                        <h4>導入後：智慧流通（IoT 感測）</h4>
+                        <p>庫存準確率飆升至 99.9%，盤點縮短至數分鐘甚至即時完成 [cite: 76, 77]。產品耗損率有效降低 40% 以上，實現全通路即時庫存可視化 [cite: 78, 80]。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="matrix">
+            <h1 class="slide-title"><i class="fa-solid fa-table-cells"></i>流通與行銷場景感測技術診斷矩陣</h1>
+            <p class="description">沒有最好的感測器，只有最適合該商業痛點的解決方案。企業必須依照建置成本、距離與限制來佈局技術 [cite: 82, 166]。</p>
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>技術類別 [cite: 83]</th>
+                        <th>建置成本 [cite: 83]</th>
+                        <th>有效距離 [cite: 83]</th>
+                        <th>流通最佳場景 [cite: 83]</th>
+                        <th>行銷最佳場景 [cite: 83]</th>
+                        <th>核心限制 [cite: 83]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>RFID</strong></td>
+                        <td>中低</td>
+                        <td>近/中距</td>
+                        <td>棧板與單品級庫存追蹤</td>
+                        <td>智慧試衣間互動</td>
+                        <td>易受金屬與液體干擾</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BLE Beacon</strong></td>
+                        <td>低</td>
+                        <td>中距 (10-50m)</td>
+                        <td>室內資產定位</td>
+                        <td>門市精準微定位推播</td>
+                        <td>需消費者開啟藍牙/App</td>
+                    </tr>
+                    <tr>
+                        <td><strong>環境感測</strong></td>
+                        <td>依精度浮動</td>
+                        <td>區域</td>
+                        <td>生鮮與醫藥冷鏈監控</td>
+                        <td>智慧冰櫃自動調節</td>
+                        <td>硬體需定期校準</td>
+                    </tr>
+                    <tr>
+                        <td><strong>電腦視覺</strong></td>
+                        <td>高</td>
+                        <td>視角範圍</td>
+                        <td>月台自動裝卸辨識</td>
+                        <td>顧客動線與情緒分析</td>
+                        <td>隱私爭議與高算力需求</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
         <section id="retail">
-            <h1 class="slide-title"><i class="fa-solid fa-eye"></i>實體零售的全面覺醒：線下 Google Analytics</h1>
-            <p class="description">影像與微定位感測技術，讓實體店面的顧客足跡變得可測量。我們不再只知道最終「賣出什麼」，更能全面解構分析「顧客看了什麼卻沒買」。</p>
+            <h1 class="slide-title"><i class="fa-solid fa-store"></i>實體零售的全面覺醒：智慧門市佈局</h1>
+            <p class="description">影像與定位感測技術，讓實體店面的顧客動線變得可測量，打造「線下 Google Analytics」[cite: 85, 104, 105]。</p>
             <div class="grid-3">
-                <div class="retro-card">
-                    <h3>紅外線人流計數器</h3>
-                    <p>精準計算進店轉換率（Conversion Rate）與尖離峰時段，優化人力排班。</p>
+                <div class="tech-card">
+                    <h3>紅外線人流計數器 (IR Counters)</h3>
+                    <p>精準計算進店轉換率與尖離峰時段，為店面營運提供核心的 Traffic、Dwell Time 與 Conversion 數據指標 [cite: 86, 117, 118, 119]。</p>
                 </div>
-                <div class="retro-card">
+                <div class="tech-card">
                     <h3>智慧貨架 (重量感測)</h3>
-                    <p>感知商品被拿取或放回的動作，即時結合防盜與後台自動補貨提醒。</p>
+                    <p>精準感知商品的拿取與放回動作，能即時結合門市防盜與後台自動補貨提醒機制 [cite: 88, 89]。</p>
                 </div>
-                <div class="retro-card">
-                    <h3>BLE Beacon 微定位網</h3>
-                    <p>當顧客走進特定貨架半徑，自動發送低功耗訊號，觸發品牌 App 推播專屬 LBS 適地性行銷折扣。</p>
+                <div class="tech-card">
+                    <h3>無收銀員智慧結帳系統</h3>
+                    <p>結合 RFID 與電腦視覺，消費者只需自己感應商品即可透過行動支付快速結帳，大幅縮短排隊時間 [cite: 90, 147]。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="lbs">
+            <h1 class="slide-title"><i class="fa-solid fa-location-arrow"></i>從「靠近」到「購買」：LBS 適地性行銷</h1>
+            <p class="description">行銷不再是盲目群發。感測器賦予了行銷訊息「空間」與「時間」的完美上下文，極大化轉換率 [cite: 92, 102]。</p>
+            <div class="two-col">
+                <div class="flow-step">
+                    <span class="step-badge">01. 感測 Detect</span>
+                    <div>
+                        <h4>Beacon 訊號發送</h4>
+                        <p>門市內的 Beacon 持續發送低功耗藍牙訊號至消費者手中的品牌 App [cite: 87, 99]。</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <span class="step-badge">02. 決策 Analyze</span>
+                    <div>
+                        <h4>雲端 CRM 辨識</h4>
+                        <p>系統即時串聯雲端資料庫，辨識出目前靠近貨架的是經常購買咖啡的 VIP 會員 [cite: 100]。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flow-step" style="border-left-color: var(--tech-cyan); background: #f0fdfa;">
+                <span class="step-badge" style="background: var(--tech-cyan);">03. 推播 Engage</span>
+                <div>
+                    <h4>精準脈絡行銷 (Contextual Marketing)</h4>
+                    <p>系統即時推播：「嗨！您最愛的掛耳咖啡今日買一送一，就在您右側！」完美打通前台行銷與後端流通的閉環 [cite: 101, 121, 129]。</p>
                 </div>
             </div>
         </section>
 
         <section id="cases">
-            <h1 class="slide-title"><i class="fa-solid fa-tags"></i>快時尚服飾巨頭的端到端生態系</h1>
+            <h1 class="slide-title"><i class="fa-solid fa-shirt"></i>快時尚服飾巨頭的端到端生態系</h1>
+            <p class="description">完美展現物聯網整合物流「準確」與行銷「精準」的頂級商業威力 [cite: 132, 167]。</p>
             <div class="two-col">
                 <div>
-                    <h2 style="color:var(--neon-pink); margin-bottom: 20px; font-family:'Share Tech Mono'">ZARA Ecosystem</h2>
+                    <h2 style="color:var(--tech-pink); margin-bottom: 20px; font-family:'Space Grotesk'">ZARA Ecosystem [cite: 131]</h2>
                     <div class="flow-step">
-                        <span class="step-badge">工廠 / 物流</span>
-                        <p>衣服出廠即內嵌專屬 RFID 標籤，在物流中心透過感測器實現每小時數萬件衣物的自動分揀與配送。</p>
+                        <p><strong>工廠端：</strong> 每一件衣服在出廠時，即寫入專屬的 RFID 標籤（即數位身分證） [cite: 134, 136]。</p>
                     </div>
                     <div class="flow-step">
-                        <span class="step-badge">門市 / 後台</span>
-                        <p>店員使用手持 RFID 設備批量掃描，將原本痛苦的盤點時間從 40 小時驟降至 2 小時。</p>
+                        <p><strong>物流中心：</strong> 輸送帶上的感測器實現每小時數萬件衣物的自動分揀與精準配送 [cite: 137, 138]。</p>
                     </div>
                     <div class="flow-step">
-                        <span class="step-badge">試衣間體驗</span>
-                        <p>智慧試衣間自動感測顧客帶入的衣物 RFID，並在鏡面螢幕上即時推薦適合搭配的鞋包飾品。</p>
+                        <p><strong>門市後台：</strong> 店員使用手持 RFID 設備批量掃描，將原本痛苦的盤點時間從 40 小時驟降至 2 小時 [cite: 139, 140]。</p>
+                    </div>
+                    <div class="flow-step">
+                        <p><strong>消費者體驗：</strong> 互動式智慧試衣間感測顧客帶入的衣物，自動在鏡面螢幕上推薦適合搭配的鞋包飾品 [cite: 141, 142]。</p>
                     </div>
                 </div>
                 <div>
-                    <h2 style="color:var(--neon-blue); margin-bottom: 20px; font-family:'Share Tech Mono'">UNIQLO RFID System</h2>
-                    <p class="description" style="font-size: 16px;">
-                        UNIQLO 採用的無線射頻識別標籤，運作時無需依賴電池，傳輸距離最遠可達 10 公尺。
-                    </p>
-                    <div class="retro-card" style="border-left: 4px solid var(--neon-blue);">
-                        <p style="line-height: 1.8;">
-                            <i class="fa-solid fa-quote-left" style="color:var(--neon-blue); margin-right: 10px;"></i>
-                            <strong>每一個 RFID 都是一張身分證。</strong> 就算是完全相同的顏色與尺寸，身分證字號也截然不同。這正是能讓消費者整籃衣物丟入自助結帳箱、秒速完成感應扣款的祕密武器！
+                    <h2 style="color:var(--tech-blue); margin-bottom: 20px; font-family:'Space Grotesk'">UNIQLO RFID System [cite: 144, 145]</h2>
+                    <div class="tech-card" style="border-top: 4px solid var(--tech-blue); background:#fff;">
+                        <p style="line-height: 1.8; font-size:15px;">
+                            UNIQLO 的無線射頻識別（RFID）標籤傳輸距離可達 10 公尺，運作無須依賴電池且可重複使用 [cite: 146, 147]。<br><br>
+                            核心邏輯在於：<strong>「每一個 RFID 都是一張專屬身分證」</strong> [cite: 147]。就算是完全相同的顏色與尺寸，標籤內寫入的身分證字號也截然不同 [cite: 147]。這正是為什麼消費者只需自己操作結帳機，整籃商品丟入槽中即可完成「秒速自動感應扣款」的秘密武器 [cite: 147]。
                         </p>
                     </div>
                 </div>
@@ -454,26 +579,24 @@
         </section>
 
         <section id="future" style="margin-bottom: 0;">
-            <h1 class="slide-title"><i class="fa-solid fa-brain"></i>從「感知」邁向「預知」的未來商業</h1>
+            <h1 class="slide-title"><i class="fa-solid fa-chart-line"></i>從「感知」到「預知」的 AIoT 未來</h1>
+            <p class="description">當物流的數據基石與前端的大膽行銷承諾（如 BOPIS 網訂店取、門市快速退換貨）結合，才能打造完美的消費者信任體驗 [cite: 121, 126, 127, 128, 167]。</p>
             <div class="grid-3" style="text-align: center;">
-                <div class="retro-card">
-                    <h2 style="color:#6b7280; font-family:'Share Tech Mono'; margin-bottom:10px;">PAST</h2>
-                    <h4>條碼與人工抽檢</h4>
-                    <p style="margin-top:10px; font-size:14px; color:#6b7280;">只能回答：<br>「過去發生了什麼？」</p>
+                <div class="tech-card">
+                    <h2 style="color:#94a3b8; font-family:'Space Grotesk'; margin-bottom:10px;">PAST</h2>
+                    <h4>傳統條碼與人工抽檢 [cite: 161]</h4>
+                    <p style="margin-top:10px;">只能被動回答：<br><strong>「過去發生了什麼？」</strong> [cite: 161]</p>
                 </div>
-                <div class="retro-card" style="border: 1px solid var(--neon-blue); box-shadow:0 0 10px rgba(0,240,255,0.1)">
-                    <h2 style="color:var(--neon-blue); font-family:'Share Tech Mono'; margin-bottom:10px;">PRESENT</h2>
-                    <h4>物聯網感測 (IoT)</h4>
-                    <p style="margin-top:10px; font-size:14px; color:var(--neon-blue);">能夠即時回報：<br>「現在正在發生什麼？」</p>
+                <div class="tech-card" style="border: 1px solid var(--tech-blue);">
+                    <h2 style="color:var(--tech-blue); font-family:'Space Grotesk'; margin-bottom:10px;">PRESENT</h2>
+                    <h4>物聯網即時感測 (IoT) [cite: 162]</h4>
+                    <p style="margin-top:10px;">能夠即時動態回答：<br><strong>「現在正在發生什麼？」</strong> [cite: 162]</p>
                 </div>
-                <div class="retro-card" style="border: 1px solid var(--neon-pink); box-shadow:0 0 10px rgba(255,0,127,0.1)">
-                    <h2 style="color:var(--neon-pink); font-family:'Share Tech Mono'; margin-bottom:10px;">FUTURE</h2>
-                    <h4>人工智慧物聯網 (AIoT)</h4>
-                    <p style="margin-top:10px; font-size:14px; color:var(--neon-pink);">大數據智能預測：<br>「即將發生什麼？」</p>
+                <div class="tech-card" style="border: 1px solid var(--tech-pink);">
+                    <h2 style="color:var(--tech-pink); font-family:'Space Grotesk'; margin-bottom:10px;">FUTURE</h2>
+                    <h4>人工智慧物聯網 (AIoT) [cite: 165]</h4>
+                    <p style="margin-top:10px;">AI 結合感測大數據預知：<br><strong>「即將發生什麼？」</strong> [cite: 165]</p>
                 </div>
-            </div>
-            <div style="margin-top: 40px; text-align: center; font-family: 'Share Tech Mono', sans-serif; color: var(--neon-green); font-size: 20px; letter-spacing: 2px;">
-                >> REPORT COMPLETED // SYSTEM ENDS <<
             </div>
         </section>
 
@@ -486,7 +609,6 @@
         
         menuBtn.addEventListener('click', () => {
             sidebar.classList.toggle('open');
-            // 切換按鈕圖標
             const icon = menuBtn.querySelector('i');
             if(sidebar.classList.contains('open')) {
                 icon.className = 'fa-solid fa-xmark';
@@ -503,8 +625,7 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 200)) {
+                if (pageYOffset >= (sectionTop - 220)) {
                     current = section.getAttribute('id');
                 }
             });
@@ -517,7 +638,6 @@
             });
         });
 
-        // 點擊導航項目後，在行動端自動收回側邊欄
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 sidebar.classList.remove('open');
@@ -525,26 +645,28 @@
             });
         });
 
-        // 3. Chart.js 渲染：效益對比趨勢圖表
+        // 3. Chart.js 渲染：單獨抽離的效益對比長條圖表
         const ctx = document.getElementById('efficiencyChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['庫存準確率 (%)', '耗損率降低比例 (%)'],
+                labels: ['庫存準確率 (%)', '產品耗損降低率 (%)'],
                 datasets: [
                     {
                         label: '傳統物流 (導入前)',
-                        data: [80, 0], // 導入前耗損率作為基準點
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                        borderColor: 'rgba(255, 255, 255, 0.3)',
-                        borderWidth: 1
+                        data: [80, 0], 
+                        backgroundColor: '#e2e8f0',
+                        borderColor: '#cbd5e1',
+                        borderWidth: 1,
+                        borderRadius: 4
                     },
                     {
                         label: '智慧流通 (導入 IoT 感測後)',
-                        data: [99.9, 40], // 準確率達99.9%，耗損降低40%+
-                        backgroundColor: 'rgba(0, 240, 255, 0.4)',
-                        borderColor: '#00f0ff',
-                        borderWidth: 2
+                        data: [99.9, 40], 
+                        backgroundColor: '#0066cc',
+                        borderColor: '#0052a3',
+                        borderWidth: 1,
+                        borderRadius: 4
                     }
                 ]
             },
@@ -553,9 +675,20 @@
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
+                        position: 'top',
                         labels: {
-                            color: '#d1d5db',
-                            font: { family: 'Noto Sans TC' }
+                            color: '#0f172a',
+                            font: { family: 'Noto Sans TC', weight: '500' }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) { label += ': '; }
+                                if (context.parsed.y !== null) { label += context.parsed.y + '%'; }
+                                return label;
+                            }
                         }
                     }
                 },
@@ -563,12 +696,12 @@
                     y: {
                         beginAtZero: true,
                         max: 100,
-                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                        ticks: { color: '#9ca3af' }
+                        grid: { color: '#f1f5f9' },
+                        ticks: { color: '#475569' }
                     },
                     x: {
                         grid: { display: false },
-                        ticks: { color: '#9ca3af', font: { family: 'Noto Sans TC' } }
+                        ticks: { color: '#0f172a', font: { family: 'Noto Sans TC', weight: '500' } }
                     }
                 }
             }
