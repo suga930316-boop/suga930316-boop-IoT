@@ -254,6 +254,52 @@
             width: 100%;
         }
 
+        /* 影片播放容器 */
+        .video-block {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+
+        /* 直立式短影音專用容器 */
+        .shorts-container {
+            position: relative;
+            padding-bottom: 177.77%; /* 9:16 比例 */
+            height: 0;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .shorts-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+
         /* 矩陣表格樣式 */
         .matrix-table {
             width: 100%;
@@ -351,7 +397,7 @@
             <p>流通科技管理期末報告</p>
         </div>
         <nav>
-            <a href="#intro" class="active"><i class="fa-solid fa-clock-history"></i>首頁與起源起源</a>
+            <a href="#intro" class="active"><i class="fa-solid fa-clock-history"></i>首頁與起源</a>
             <a href="#architecture"><i class="fa-solid fa-sitemap"></i>三層商業價值架構</a>
             <a href="#warehouse"><i class="fa-solid fa-boxes-stacked"></i>智慧倉儲與物流場景</a>
             <a href="#chart-section"><i class="fa-solid fa-chart-bar"></i>數據驅動效益對比</a>
@@ -363,8 +409,8 @@
         </nav>
         <div class="sidebar-footer">
             指導教授：褚文明 教授<br>
-            班級學號：二技行銷流通二甲<br>
-            發表人：湯唯湞 · 洪昀蓁 
+            班級學號：院二流三甲<br>
+            發表人：5B433005湯唯湞 · 5B433008洪昀蓁
         </div>
     </aside>
 
@@ -372,17 +418,28 @@
 
         <section id="intro">
             <h1 class="slide-title"><i class="fa-solid fa-globe"></i>物聯網與感測技術的起源</h1>
-            <p class="description">
-                物聯網（Internet of Things, IoT）與感測技術，建構起現代商業的數位神經網絡。它將物理世界的變化即時「翻譯」為數位數據，徹底重塑行銷與流通管理邏輯。
-            </p>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">1982</div>
-                    <p><strong>自動販賣機的連網實驗：</strong> 美國卡內基美隆大學的學生為了解決「不想白跑一趟卻發現可樂賣完或不夠冰」的痛點，將販賣機連上網路。物品開始具備初步的感知與溝通能力。</p>
+            <div class="two-col">
+                <div>
+                    <p class="description">
+                        物聯網（Internet of Things, IoT）與感測技術，建構起現代商業的數位神經網絡。它將物理世界的變化即時「翻譯」為數位數據，徹底重塑行銷與流通管理邏輯。
+                    </p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1982</div>
+                            <p><strong>自動販賣機的連網實驗：</strong> 美國卡內基美隆大學的學生為了解決「不想白跑一趟卻發現可樂賣完或不夠冰」的痛點，將販賣機連上網路。物品開始具備初步的感知與溝通能力。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1999</div>
+                            <p><strong>IoT 概念正式問世：</strong> 寶僑（P&G）的凱文·艾希頓（Kevin Ashton）在為了解決貨架口紅缺貨危機時，首度提出將 RFID 標籤貼在產品上並與網際網路連結的概念，物聯網時代正式揭開序幕。</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">1999</div>
-                    <p><strong>IoT 概念正式問世：</strong> 寶僑（P&G）的凱文·艾希頓（Kevin Ashton）在為了解決貨架口紅缺貨危機時，首度提出將 RFID 標籤貼在產品上並與網際網路連結的概念，物聯網時代正式揭開序幕。</p>
+                <div class="video-block">
+                    <h4 style="margin-bottom: 10px; color: var(--tech-blue);"><i class="fa-brands fa-youtube" style="margin-right: 5px;"></i> 科普影片引言展示</h4>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/zJ3OcGJQXzg" title="物聯網到底是什麼？智慧設備互聯背後的科技革命" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 10px; text-align: center;">影片來源：天下科普《物聯網到底是什麼？》</p>
                 </div>
             </div>
         </section>
@@ -399,7 +456,7 @@
                 </div>
                 <div class="tech-card">
                     <h3>中層：網路層 (Network)</h3>
-                    <p><strong>企業的高速公路：</strong> 透過 Wi-Fi、5G、LoRa 或 Gateway ，將第一線採集到的物理變數以零延遲傳輸至雲端平台。</p>
+                    <p><strong>企業的高速公路：</strong> 透過 Wi-Fi、5G、LoRa 或 Gateway，將第一線採集到的物理變數以零延遲傳輸至雲端平台。</p>
                 </div>
                 <div class="tech-card">
                     <h3>頂層：應用層 (Application)</h3>
@@ -410,19 +467,37 @@
 
         <section id="warehouse">
             <h1 class="slide-title"><i class="fa-solid fa-warehouse"></i>供應鏈的透視眼：智慧倉儲與物流場景</h1>
-            <p class="description">透過感測器網絡，倉儲管理從「事後紀錄」進化為「即時掌控」，實現庫存透明化與作業自動化 。</p>
-            <div class="grid-3">
-                <div class="tech-card">
-                    <h3>RFID 讀取通道</h3>
-                    <p>貨物進出庫瞬間完成批量掃描，告別逐件條碼讀取，大幅提升進出貨效率。</p>
+            <div class="two-col">
+                <div>
+                    <p class="description">透過感測器網絡，倉儲管理從「事後紀錄」進化為「即時掌控」，實現庫存透明化與作業自動化。</p>
+                    <div class="flow-step">
+                        <span class="step-badge">RFID Channel</span>
+                        <div>
+                            <h4>RFID 讀取通道</h4>
+                            <p>貨物進出庫瞬間完成批量掃描，告別逐件條碼讀取，大幅提升進出貨效率。</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <span class="step-badge">LiDAR Sensor</span>
+                        <div>
+                            <h4>LiDAR 與紅外線感測</h4>
+                            <p>作為 AGV 無人搬運車的導航之眼，即時優化揀貨動線並防止碰撞，確保無人化作業安全。</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <span class="step-badge">Cold Chain</span>
+                        <div>
+                            <h4>IoT 溫濕度感測節點</h4>
+                            <p>應用於生鮮與醫藥冷鏈監控，即時監控冷藏環境，一旦溫度異常即觸發自動警報。</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="tech-card">
-                    <h3>LiDAR 與紅外線感測</h3>
-                    <p>作為 AGV 無人搬運車的導航之眼，即時優化揀貨動線並防止碰撞，確保無人化作業安全 。</p>
-                </div>
-                <div class="tech-card">
-                    <h3>IoT 溫濕度感測節點</h3>
-                    <p>應用於生鮮與醫藥冷鏈監控，即時監控冷藏環境，一旦溫度異常即觸發自動警報 。</p>
+                <div class="video-block">
+                    <h4 style="margin-bottom: 10px; color: var(--tech-blue);"><i class="fa-brands fa-youtube" style="margin-right: 5px;"></i> 全自動化無人倉實戰視覺展示</h4>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YN_FUMXUT0o" title="京東世界初全工程自動化倉庫最新動画" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 10px; text-align: center;">影片來源：株式会社Mujin《京東全球首個全流程無人倉》</p>
                 </div>
             </div>
         </section>
@@ -430,7 +505,7 @@
         <section id="chart-section">
             <h1 class="slide-title"><i class="fa-solid fa-chart-bar"></i>數據驅動的效益對比：從「憑經驗」到「精準預測」</h1>
             <p class="description">
-                對比導入前後的商業核心指標，物聯網技術打破了資訊斷層導致的牛鞭效應 。以下圖表呈現傳統物流與智慧流通的關鍵數據差距。
+                對比導入前後的商業核心指標，物聯網技術打破了資訊斷層導致的牛鞭效應。以下圖表呈現傳統物流與智慧流通的關鍵數據差距。
             </p>
             <div class="two-col">
                 <div class="chart-block">
@@ -456,10 +531,10 @@
                 <thead>
                     <tr>
                         <th>技術類別</th>
-                        <th>建置成本 </th>
+                        <th>建置成本</th>
                         <th>有效距離</th>
-                        <th>流通最佳場景 </th>
-                        <th>行銷最佳場景 </th>
+                        <th>流通最佳場景</th>
+                        <th>行銷最佳場景</th>
                         <th>核心限制</th>
                     </tr>
                 </thead>
@@ -514,14 +589,14 @@
                 </div>
                 <div class="tech-card">
                     <h3>無收銀員智慧結帳系統</h3>
-                    <p>結合 RFID 與電腦視覺，消費者只需自己感應商品即可透過行動支付快速結帳，大幅縮短排隊時間 。</p>
+                    <p>結合 RFID 與電腦視覺，消費者只需自己感應商品即可透過行動支付快速結帳，大幅縮短排隊時間。</p>
                 </div>
             </div>
         </section>
 
         <section id="lbs">
             <h1 class="slide-title"><i class="fa-solid fa-location-arrow"></i>從「靠近」到「購買」：LBS 適地性行銷</h1>
-            <p class="description">行銷不再是盲目群發。感測器賦予了行銷訊息「空間」與「時間」的完美上下文，極大化轉換率 。</p>
+            <p class="description">行銷不再是盲目群發。感測器賦予了行銷訊息「空間」與「時間」的完美上下文，極大化轉換率。</p>
             <div class="two-col">
                 <div class="flow-step">
                     <span class="step-badge">01. 感測 Detect</span>
@@ -549,30 +624,28 @@
 
         <section id="cases">
             <h1 class="slide-title"><i class="fa-solid fa-shirt"></i>快時尚服飾巨頭的端到端生態系</h1>
-            <p class="description">完美展現物聯網整合物流「準確」與行銷「精準」的頂級商業威力 。</p>
+            <p class="description">完美展現物聯網整合物流「準確」與行銷「精準」的頂級商業威力。</p>
             <div class="two-col">
                 <div>
                     <h2 style="color:var(--tech-pink); margin-bottom: 20px; font-family:'Space Grotesk'">ZARA Ecosystem</h2>
-                    <div class="flow-step">
-                        <p><strong>工廠端：</strong> 每一件衣服在出廠時，即寫入專屬的 RFID 標籤（即數位身分證）。</p>
-                    </div>
-                    <div class="flow-step">
-                        <p><strong>物流中心：</strong> 輸送帶上的感測器實現每小時數萬件衣物的自動分揀與精準配送。</p>
-                    </div>
-                    <div class="flow-step">
-                        <p><strong>門市後台：</strong> 店員使用手持 RFID 設備批量掃描，將原本痛苦的盤點時間從 40 小時驟降至 2 小時 。</p>
-                    </div>
-                    <div class="flow-step">
-                        <p><strong>消費者體驗：</strong> 互動式智慧試衣間感測顧客帶入的衣物，自動在鏡面螢幕上推薦適合搭配的鞋包飾品。</p>
-                    </div>
+                    <div class="flow-step"><p><strong>工廠端：</strong> 每一件衣服在出廠時，即寫入專屬的 RFID 標籤（即數位身分證）。</p></div>
+                    <div class="flow-step"><p><strong>物流中心：</strong> 輸送帶上的感測器實現每小時數萬件衣物的自動分揀與精準配送。</p></div>
+                    <div class="flow-step"><p><strong>門市後台：</strong> 店員使用手持 RFID 設備批量掃描，將原本痛苦的盤點時間從 40 小時驟降至 2 小時。</p></div>
+                    <div class="flow-step"><p><strong>消費者體驗：</strong> 互動式智慧試衣間感測顧客帶入的衣物，自動在鏡面螢幕上推薦適合搭配的鞋包飾品。</p></div>
                 </div>
                 <div>
                     <h2 style="color:var(--tech-blue); margin-bottom: 20px; font-family:'Space Grotesk'">UNIQLO RFID System</h2>
-                    <div class="tech-card" style="border-top: 4px solid var(--tech-blue); background:#fff;">
-                        <p style="line-height: 1.8; font-size:15px;">
-                            UNIQLO 的無線射頻識別（RFID）標籤傳輸距離可達 10 公尺，運作無須依賴電池且可重複使用。<br><br>
-                            核心邏輯在於：<strong>「每一個 RFID 都是一張專屬身分證」</strong>。就算是完全相同的顏色與尺寸，標籤內寫入的身分證字號也截然不同。這正是為什麼消費者只需自己操作結帳機，整籃商品丟入槽中即可完成「秒速自動感應扣款」的秘密武器。
+                    <div class="tech-card" style="border-top: 4px solid var(--tech-blue); background:#fff; margin-bottom: 15px;">
+                        <p style="line-height: 1.8; font-size:14px;">
+                            UNIQLO 核心邏輯在於：<strong>「每一個 RFID 都是一張專屬身分證」</strong>。就算是完全相同的顏色與尺寸，標籤內寫入的身分證字號也截然不同。這正是為什麼消費者只需自己操作結帳機，整籃商品丟入槽中即可完成「秒速自動感應結帳」的秘密武器。
                         </p>
+                    </div>
+                    <div class="video-block" style="text-align: center;">
+                        <h4 style="margin-bottom: 10px; color: var(--tech-blue); text-align: left;"><i class="fa-brands fa-youtube" style="margin-right: 5px;"></i> 日常科技互動實測 (Shorts)</h4>
+                        <div class="shorts-container">
+                            <iframe src="https://www.youtube.com/embed/2r8j2hG4kdM" title="Uniqlo 自助結帳是什麼黑科技！？" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 10px;">影片來源：電獺少女《Uniqlo 自助結帳黑科技》</p>
                     </div>
                 </div>
             </div>
@@ -585,17 +658,17 @@
                 <div class="tech-card">
                     <h2 style="color:#94a3b8; font-family:'Space Grotesk'; margin-bottom:10px;">PAST</h2>
                     <h4>傳統條碼與人工抽檢</h4>
-                    <p style="margin-top:10px;">只能被動回答：<br><strong>「過去發生了什麼？」</strong> </p>
+                    <p style="margin-top:10px;">只能被動回答：<br><strong>「過去發生了什麼？」</strong></p>
                 </div>
                 <div class="tech-card" style="border: 1px solid var(--tech-blue);">
                     <h2 style="color:var(--tech-blue); font-family:'Space Grotesk'; margin-bottom:10px;">PRESENT</h2>
                     <h4>物聯網即時感測 (IoT)</h4>
-                    <p style="margin-top:10px;">能夠即時動態回答：<br><strong>「現在正在發生什麼？」</strong> </p>
+                    <p style="margin-top:10px;">能夠即時動態回答：<br><strong>「現在正在發生什麼？」</strong></p>
                 </div>
                 <div class="tech-card" style="border: 1px solid var(--tech-pink);">
                     <h2 style="color:var(--tech-pink); font-family:'Space Grotesk'; margin-bottom:10px;">FUTURE</h2>
-                    <h4>人工智慧物聯網 (AIoT) </h4>
-                    <p style="margin-top:10px;">AI 結合感測大數據預知：<br><strong>「即將發生什麼？」</strong> </p>
+                    <h4>人工智慧物聯網 (AIoT)</h4>
+                    <p style="margin-top:10px;">AI 結合感測大數據預知：<br><strong>            「即將發生什麼？」</strong></p>
                 </div>
             </div>
         </section>
